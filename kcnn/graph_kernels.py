@@ -107,7 +107,10 @@ def wl_kernel(g1, g2=None, h=6):
 		        
 		    for node in G.nodes():
 		        node_label = tuple([labels[ind][node2index[node]]])
-		        neighbors = G.neighbors(node)
+		        neighbors_gen = G.neighbors(node)
+		        neighbors = []
+		        for n in neighbors:
+		        	neighbors.append(n)
 		        if len(neighbors) > 0:
 		            neighbors_label = tuple([labels[ind][node2index[neigh]] for neigh in neighbors])
 		            node_label =  str(node_label) + "-" + str(sorted(neighbors_label))
